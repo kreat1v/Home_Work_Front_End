@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home work 14.09.2017</title>
+</head>
+<body>
+
+    <h2>Задача №1</h2>
+    <input type="checkbox" /><span>Я не отмечен</span>
+    <style type="text/css">
+        body {
+            font-family: Verdana;
+            font-size: 16px;
+        }
+
+        input {
+            position: absolute;
+            left: 140px;
+        }
+
+        input:checked + span::before {
+            content: "Я отмечен";
+            position: relative;
+            left: 210px;
+        }
+
+        input:checked + span {
+            position: relative;
+            right: 210px;
+        }
+    </style>
+
+    <h2>Задача №2</h2>
+    <div class="task-2">
+        <div>4</div>
+        <div>1</div>
+        <div>3</div>
+        <div>2</div>
+        <div>6</div>
+        <div>5</div>
+    </div>
+    <style type="text/css">
+        .task-2 {
+            width: 250px;
+        }
+        .task-2 div {
+            line-height: 50px;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            background: #DFD;
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+        .task-2 div:nth-child(1) {
+            float: right;
+        }
+        .task-2 div:nth-child(2) {
+            float: left;
+        }
+        .task-2 div:nth-child(3) {
+            float: right;
+        }
+        .task-2 div:nth-child(4) {
+            float: left;
+        }
+        .task-2 div:nth-child(5) {
+            float: right;
+            clear: both;
+        }
+        .task-2 div:nth-child(6) {
+            float: left;
+        }
+    </style>
+
+    <h2 style="clear: both; padding-top: 10px">Задача №3</h2>
+    <div class="task-3">
+        <div>4</div>
+        <div>1</div>
+        <div>3</div>
+        <div>2</div>
+        <div>6</div>
+        <div>5</div>
+    </div>
+    <style type="text/css">
+        .task-3 {
+            width: 250px;
+        }
+        .task-3 div {
+            line-height: 50px;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            background: #DFD;
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+        .task-3 div:nth-child(1) {
+            position: relative;
+            margin-left: 150px;
+        }
+        .task-3 div:nth-child(2) {
+            position: relative;
+            margin-top: -50px;
+        }
+        .task-3 div:nth-child(3) {
+            position: relative;
+            margin: -50px 0 0 100px;
+        }
+        .task-3 div:nth-child(4) {
+            position: relative;
+            margin: -50px 0 0 50px;
+        }
+        .task-3 div:nth-child(5) {
+            position: relative;
+            margin-left: 50px;
+        }
+        .task-3 div:nth-child(6) {
+            position: relative;
+            margin-top: -50px;
+        }
+    </style>
+
+    <h2>Задача №4</h2>
+    <div class="task-4">
+        <div>4</div>
+        <div>1</div>
+        <div>3</div>
+        <div>2</div>
+        <div>6</div>
+        <div>5</div>
+    </div>
+    <style type="text/css">
+        .task-4 {
+            width: 250px;
+            position: relative;
+        }
+        .task-4 div {
+            line-height: 50px;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            background: #DFD;
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+        .task-4 div:nth-child(1) {
+            position: absolute;
+            left: 150px;
+        }
+        .task-4 div:nth-child(2) {
+            position: absolute;
+        }
+        .task-4 div:nth-child(3) {
+            position: absolute;
+            left: 100px;
+        }
+        .task-4 div:nth-child(4) {
+            position: absolute;
+            left: 50px;
+        }
+        .task-4 div:nth-child(5) {
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+        .task-4 div:nth-child(6) {
+            position: absolute;
+            top: 50px;
+        }
+    </style>
+
+    <h2 style="padding-top: 120px">Задача №5</h2>
+    <div class="grad"></div>
+    <style type="text/css">
+        .grad {
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(135deg, transparent, #F00 100%);
+            background-color: #000;
+            overflow: hidden;
+            transition: all 1000ms;
+        }
+        .grad:hover {
+            background-color: #F00;
+        }
+    </style>
+
+</body>
+</html>
