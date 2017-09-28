@@ -1,0 +1,79 @@
+@media screen and (min-width: 801px) {
+    nav {
+        max-width: 500px;
+        margin: -2px auto 0 auto;
+        border-left: 2px solid #F1F8E9;
+        border-right: 2px solid #F1F8E9;
+        border-bottom: 2px solid #F1F8E9;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    nav li {
+        display: table-cell;
+        width: 125px;
+        height: 30px;
+        text-align: center;
+        vertical-align: middle;
+        transition: background-color 0.3s ease;
+    }
+
+    main {
+        padding-top: 32px;
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    .aside_wrapper {
+        margin: 0 10px;
+        padding-bottom: 10px;
+    }
+
+    .right_side {
+        width: 100%;
+    }
+
+    .left_side {
+        width: 100%;
+    }
+
+    article {
+        float: right;
+        width: 65%;
+        padding-bottom: 38px;
+        margin-bottom: 10px;
+    }
+
+    aside {
+        float: left;
+        width: 35%;
+    }
+
+    .first_img {
+        transition: all 0.2s linear;
+    }
+
+    .first_img:hover {
+        transform: scale(1.2) translateX(27.5px);
+    }
+
+    @keyframes myanimation {
+        0% {
+            margin-left: 5px;
+        }
+
+        100% {
+            margin-left: 651px;
+        }
+    }
+
+    .animation {
+        width: 217px;
+        height: 220px;
+        position: absolute;
+        background-color: #33691E;
+        margin-left: 5px;
+        animation: myanimation 9s steps(3, end) infinite;
+    }
+}

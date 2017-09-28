@@ -1,0 +1,111 @@
+@media screen and (min-width: 481px){
+    header > div {
+        height: 55px;
+    }
+
+    nav {
+        width: 100%;
+        margin: -2px auto 0 auto;
+        border-bottom: 2px solid #F1F8E9;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    nav li {
+        display: inline-block;
+        width: 25%;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        transition: background-color 0.3s ease;
+    }
+
+    label {
+        display: none;
+    }
+
+    main {
+        margin-top: 20px;
+    }
+
+    article {
+        padding-bottom: 40px;
+        margin-bottom: 10px;
+    }
+
+    .right_side {
+        display: inline-block;
+        float: right;
+        width: 50%;
+    }
+
+    .left_side {
+        display: inline-block;
+        float: left;
+        width: 50%;
+    }
+
+    .articles {
+        clear: both;
+    }
+
+    .mops_big {
+        position: relative;
+        float: left;
+        width: 50%;
+    }
+
+    .options {
+        float: right;
+        width: 50%;
+    }
+
+    .also_buy {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .akita img,
+    .malamut img,
+    .retriver img {
+        width: 86%;
+        position: relative;
+        left: 19px;
+        top: 14px;
+    }
+
+    .akita,
+    .malamut,
+    .retriver {
+        display: inline-block;
+        width: 33%;
+        position: relative;
+        z-index: 1;
+    }
+
+    .akita img {
+        left: 15px;
+    }
+
+    .retriver img {
+        left: 11px;
+    }
+
+    .akita div {
+        left: 15px;
+    }
+
+    .retriver div {
+        left: 11px;
+    }
+
+    .aside_wrapper {
+        padding-bottom: 10px;
+    }
+
+    aside {
+        margin-bottom: 10px;
+    }
+}
