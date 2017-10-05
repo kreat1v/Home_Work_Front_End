@@ -16,7 +16,6 @@ body {
 
 header > div {
     width: 100%;
-    min-width: 315px;
     height: 50px;
     border-bottom: 2px solid #F1F8E9;
     background-color: #33691E;
@@ -254,7 +253,6 @@ footer {
 
 footer > div {
     width: 100%;
-    min-width: 315px;
     height: 52px;
     border-top: 2px solid #F1F8E9;
     background-color: #33691E;
@@ -304,14 +302,12 @@ footer > div {
 
     article {
         width: 100%;
-        min-width: 315px;
         padding-bottom: 38px;
         margin-bottom: 10px;
     }
 
     aside {
         width: 100%;
-        min-width: 315px;
         margin-bottom: 10px;
     }
 
