@@ -57,7 +57,9 @@
     .first_img:hover {
         transform: scale(1.2) translateX(27.5px);
     }
+}
 
+@media screen and (min-width: 1025px) {
     @keyframes myanimation {
         0% {
             margin-left: 5px;
