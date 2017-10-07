@@ -57,22 +57,19 @@
     .first_img:hover {
         transform: scale(1.2) translateX(27.5px);
     }
-}
 
-@media screen and (min-width: 1025px) {
     @keyframes myanimation {
         0% {
             margin-left: 5px;
         }
-
         100% {
-            margin-left: 651px;
+            margin-left: 98%;
         }
     }
 
     .animation {
-        width: 217px;
-        height: 220px;
+        width: 32.5%;
+        height: 114%;
         position: absolute;
         background-color: #33691E;
         margin-left: 5px;
