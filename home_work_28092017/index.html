@@ -74,7 +74,7 @@
             for (i = startHour; i < endHour; i++) {
                 i >= 23 || i < 7 ? a += 1.68 / 2 : a += 1.68;
             }
-            return a;
+            return a * 2,5;
         } else {
             for (i = startHour; i < 24; i++) {
                 i >= 23 || i < 7 ? a += 1.68 / 2 : a += 1.68;
@@ -82,7 +82,7 @@
             for (i = 0; i < endHour; i++) {
                 i >= 23 || i < 7 ? b += 1.68 / 2 : b += 1.68;
             }
-            return (a + b);
+            return (a + b) * 2,5;
         }
     }
     console.log('В период с ' + startHour + ' до ' + endHour + ' часов потреблено энергии на  ' + countEnergyCost(startHour, endHour) + ' грн. ');
@@ -96,23 +96,23 @@
             if (startHour2 < 7 && endHour2 > 7) {
                 b = 7 - startHour2;
                 c = a - b;
-                return (b * (1.68 / 2)) + (c * 1.68);
+                return ((b * (1.68 / 2)) + (c * 1.68)) * 2,5;
             } else if (startHour2 < 7 && endHour2 < 7) {
-                return a * (1.68 / 2);
+                return (a * (1.68 / 2)) * 2,5;
             } else {
-                return a * 1.68;
+                return a * 1.68 * 2,5;
             }
         } else {
             if (endHour2 < 7 && startHour2 > 7) {
                 a = ((24 - startHour2 - 1) * 1.68) + (1.68 / 2);
-                return a + endHour2 * (1.68 / 2);
+                return (a + endHour2 * (1.68 / 2)) * 2,5;
             } else if (endHour2 > 7 && startHour2 > 7) {
                 a = ((24 - startHour2 - 1) * 1.68) + (1.68 / 2);
                 b = endHour2 - 7;
-                return a + 7 * (1.68 / 2) + b * 1.68;
+                return (a + 7 * (1.68 / 2) + b * 1.68) * 2,5;
             } else {
                 a = 7 - startHour2 + endHour2 + 1;
-                return 16 * 1.68 + a * (1.68 / 2);
+                return (16 * 1.68 + a * (1.68 / 2)) * 2,5;
             }
         }
     }
