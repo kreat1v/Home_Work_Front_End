@@ -281,6 +281,7 @@ footer > div {
         display: none;
         position: absolute;
         width: 100%;
+        min-width: 350px;
         margin-top: -2px;
         text-align: center;
         z-index: 10;
