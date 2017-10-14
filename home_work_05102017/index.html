@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задачи</title>
+</head>
+<body>
+<script>
+    // Задача 2 - Поломанный reverse. Дан массив чисел. Написать функцию, "переворачивающую" массив — как при использовании reverse. Сам reverse использовать нельзя. При переборе массива использовать forEach.
+    var unreversed = [1, 2, 4, 8, 16, 32];
+    function reverse(elements) {
+        var arr = [];
+        elements.forEach(function (t) {
+            arr.unshift(t);
+        });
+        return elements = arr;
+    }
+    console.log(reverse(unreversed));
+
+    // Задача 3 - Поломанный sort. Дан массив зарплат (целые числа), полученный из базы данных. Необходимо исправить функцию sortSalaries, сортирующую список по возрастанию. Из-за программного сбоя нельзя использовать функцию-callback внутри sort и нельзя использовать собственную "ручную" сортировку. При переборе массива использовать for.
+    var salaries = [3100, 890, 1120, 740, 2100, 550, 540, 3200, 1570, 250];
+    function sortSalaries(salaryList) {
+        var salaryListCopy = salaryList.slice();
+        for (i = 0; i < salaryListCopy.length; i++) {
+            salaryListCopy[i] = salaryListCopy[i] / 1000;
+        }
+        salaryListCopy.sort();
+        for (i = 0; i < salaryListCopy.length; i++) {
+            salaryListCopy[i] = salaryListCopy[i] * 1000;
+        }
+        return salaryListCopy;
+    }
+    console.log(sortSalaries(salaries));
+
+    // Задача 4 - Максимум из минимумов. Дан массив зарплат из задачи №3. Нужно найти максимальную зарплату, меньшую 1000. Использовать reduce. Результ вывести в консоль.
+    function minMax(elements) {
+        var a;
+        a = elements.reduce(function (previousValue, currentItem) {
+            var b = 1000;
+            if (currentItem <= b) {
+                if (previousValue <= currentItem) {
+                    previousValue = currentItem;
+                }
+            }
+            return previousValue;
+        },0);
+        return a;
+    }
+    console.log(minMax(salaries));
+
+    // Задача 5 - Поиск квадратов. Дан массив целых чисел. Нужно найти подмассив чисел, которые являются квадратами других целых чисел. Для работы со степенями можно использовать Math.pow(число, степень).
+    var mayBeSquares = [1, 2, 3, 4, 8, 9, 15, 16, 34, 36, 38, 24, 25, 26];
+    function    extractSquares(nums) {
+        var a = nums.filter(function (t) {
+            if ((Math.sqrt(t)) % 1 == 0){
+                return true;
+            }
+        });
+        return a;
+    }
+    console.log(extractSquares(mayBeSquares));
+
+    // Задача 6 - Только уникальные. Дан массив имен сотрудников. Найти подмассив уникальных имен.
+    var teamMates = ['Mike', 'Peter', 'Alex', 'Sonya', 'Mike', 'Mary', 'Like', 'Alex', 'Abraham', 'Mary'];
+    function unique(elements) {
+        elements.forEach(function (t) {
+            var h = 0;
+            elements.some(function (t2, j) {
+                if (t == t2) {
+                    h++;
+                }
+                if (h >= 2) {
+                    elements.splice(j, 1);
+                    return true;
+                }
+            });
+        });
+        return elements;
+    }
+    console.log(unique(teamMates));
+
+    // Задача 7 - Складской учет. Есть данные учета поступления/отправки товаров на склад в виде массива. В четных индексах массива - коды поступивших товаров, в нечетных индексах - коды отправленных со склада товаров. Определить, сколько всего товаров пришло и было отправлено со склада, а также получить массив кодов имеющихся на складе товаров.
+    var transactions = [
+        [101, 102, 103], // поступление
+        [], // отправка
+        [104, 105, 106], // поступление и т.д.
+        [103], // отправка и т.д.
+        [107, 108],
+        [105, 106],
+        [109, 110, 111, 112],
+        [108, 110],
+        [103],
+        [111]
+    ];
+    function balance(actions) {
+        var itemsIn = 0;
+        var itemsOut = 0;
+        var itemsAvailable = [];
+        var a = [], b = [];
+        for (i = 0; i < actions.length; i++) {
+            if (i % 2 == 0) {
+                a = a.concat(actions[i]);
+                itemsIn += actions[i].length;
+            } else {
+                b = b.concat(actions[i]);
+            }
+
+            for (j = 0; j < a.length; j++) {
+                if (b.includes(a[j])) {
+                    a.splice(j, 1);
+                    j--;
+                }
+            }
+            itemsOut += b.length;
+            b = [];
+        }
+        itemsAvailable = a;
+        return 'Пришло: ' + itemsIn + '; ' + 'Отправлено: ' + itemsOut + '; ' + 'Товары на складе: ' + itemsAvailable;
+    }
+    console.log( balance(transactions) );
+</script>
+</body>
+</html>

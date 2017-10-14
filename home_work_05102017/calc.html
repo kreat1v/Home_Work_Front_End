@@ -6,14 +6,53 @@
 </head>
 <body>
 <script>
-    var a = +(prompt('Введите число:'));
-//    if () {
-//    }
-//    var b = promt();
-//    var c = promt();
-//
-//    alert(a+b+c);
-    alert(a);
+
+    var a, b, c, d;
+
+    while (true) {
+        a = +(prompt('Введите число:'));
+        if (a == '') {
+            alert('Вы ничего не ввели - введите число!');
+        } else if (isFinite(a)) {
+            break;
+        } else {
+            alert('Вы ввели не верное число!');
+        }
+    }
+
+    while (true) {
+        b = prompt('Введите оператор:');
+        if (b == '+' || b == '-' || b == '*' || b == '/') {
+            break;
+        } else {
+            alert('Вы ввели не оператор, либо оставили строку пустой! Введите оператор!');
+        }
+    }
+
+    while (true) {
+        c = +(prompt('Введите число:'));
+        if (c == '') {
+            alert('Вы ничего не ввели - введите число!');
+        } else if (b == '/' && c == 0) {
+            alert('На ноль делить нельзя! Введите другое число!');
+        } else if (isFinite(c)) {
+            break;
+        } else {
+            alert('Вы ввели не верное число!');
+        }
+    }
+
+    if (b == '+') {
+        d = a + c;
+    } else if (b == '-') {
+        d = a - c;
+    } else if (b == '*') {
+        d = a * c;
+    } else {
+        d = a / c;
+    }
+
+    alert('Итог: ' + d);
 
 </script>
 </body>
