@@ -69,57 +69,66 @@
     console.log('Сумма чисел от 1 до ' + n + ' равна: ' + sumRecursive(n));
 
     // Задача 7 - Написать функцию расчета стоимости электроэнергии, потребленной двигателем в течение суток. Мощность двигателя - 2.5 кВт. Цена 1 кВт*ч - 1.68 грн. В период с 23:00 до 7:00 тариф уменьшается в два раза. На вход программа получает время начала и время завершения работы двигателя (часы, целое число от 0 до 24). Использовать Function Expression. Результат вывести в консоль.
-    var startHour = 6, endHour = 0;
+    var startHour = 10, endHour = 24;
     var countEnergyCost = function (startHour, endHour) {
-        var a = 0, b = 0;
-        if (startHour < endHour) {
+        var aTime = 0, bTime = 0;
+        if (startHour == endHour || startHour == 24){
+            return 0;
+        } else if (startHour < endHour) {
             for (i = startHour; i < endHour; i++) {
-                i >= 23 || i < 7 ? a += 1.68 / 2 : a += 1.68;
+                i >= 23 || i < 7 ? aTime += 1.68 / 2 : aTime += 1.68;
             }
-            return a * 2.5;
+            return Math.round((aTime * 2.5) * 10) / 10;
         } else {
             for (i = startHour; i < 24; i++) {
-                i >= 23 || i < 7 ? a += 1.68 / 2 : a += 1.68;
+                i >= 23 || i < 7 ? aTime += 1.68 / 2 : aTime += 1.68;
             }
             for (i = 0; i < endHour; i++) {
-                i >= 23 || i < 7 ? b += 1.68 / 2 : b += 1.68;
+                i >= 23 || i < 7 ? bTime += 1.68 / 2 : bTime += 1.68;
             }
-            return (a + b) * 2.5;
+            return Math.round(((aTime + bTime) * 2.5) * 10) / 10;
         }
     };
     console.log('В период с ' + startHour + ' до ' + endHour + ' часов потреблено энергии на  ' + countEnergyCost(startHour, endHour) + ' грн. ');
 
     // Задача 7.1 - Предыдущую задачу можно решить двумя способами: с циклом и без. Попробуйте найти решение, отличное от вашего (если вы использовали цикл, то попробуйте решить без цикла и наоборот).
-    var startHour2 = 6, endHour2 = 0;
+    var startHour2 = 10, endHour2 = 24;
     var countEnergyCost2 = function (startHour2, endHour2) {
-        var a = 0, b = 0, c = 0;
-        if (startHour2 < endHour2) {
-            a = endHour2 - startHour2;
-            if (startHour2 < 7 && endHour2 > 7) {
-                b = 7 - startHour2;
-                c = a - b;
-                return ((b * (1.68 / 2)) + (c * 1.68)) * 2.5;
+        var aTime = 0, bTime = 0, cTime = 0;
+        if (startHour2 == endHour2 || startHour2 == 24){
+            return 0;
+        } else if (startHour2 < endHour2) {
+            aTime = endHour2 - startHour2;
+            if (startHour2 < 7 && endHour2 == 24) {
+                bTime = 7 - startHour2;
+                cTime = aTime - bTime - 1;
+                return Math.round((((bTime * (1.68 / 2)+ 0.84) + (cTime * 1.68)) * 2.5)* 10) / 10;
+            } else if (startHour2 >= 7 && endHour2 == 24){
+                return (((24 - startHour2) * 1.68) - 0.84) * 2.5;
+            } else if (startHour2 < 7 && endHour2 >= 7) {
+                bTime = 7 - startHour2;
+                cTime = aTime - bTime;
+                return ((bTime * (1.68 / 2)) + (cTime * 1.68)) * 2.5;
             } else if (startHour2 < 7 && endHour2 < 7) {
-                return (a * (1.68 / 2)) * 2.5;
+                return (aTime * (1.68 / 2)) * 2.5;
             } else {
-                return a * 1.68 * 2.5;
+                return aTime * 1.68 * 2.5;
             }
         } else {
             if (endHour2 < 7 && startHour2 > 7) {
-                a = ((24 - startHour2 - 1) * 1.68) + (1.68 / 2);
-                return (a + endHour2 * (1.68 / 2)) * 2.5;
+                aTime = ((24 - startHour2 - 1) * 1.68) + (1.68 / 2);
+                return (aTime + endHour2 * (1.68 / 2)) * 2.5;
             } else if (endHour2 > 7 && startHour2 > 7) {
-                a = ((24 - startHour2 - 1) * 1.68) + (1.68 / 2);
-                b = endHour2 - 7;
-                return (a + 7 * (1.68 / 2) + b * 1.68) * 2.5;
+                aTime = ((24 - startHour2 - 1) * 1.68) + (1.68 / 2);
+                bTime = endHour2 - 7;
+                return (aTime + 7 * (1.68 / 2) + bTime * 1.68) * 2.5;
             } else {
                 a = 7 - startHour2 + endHour2 + 1;
-                return (16 * 1.68 + a * (1.68 / 2)) * 2.5;
+                return (16 * 1.68 + aTime * (1.68 / 2)) * 2.5;
             }
         }
     };
     console.log('В период с ' + startHour2 + ' до ' + endHour2 + ' часов потреблено энергии на  ' + countEnergyCost2(startHour2, endHour2) + ' грн. ');
-
 </script>
 </body>
 </html>
