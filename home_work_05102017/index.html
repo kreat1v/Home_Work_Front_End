@@ -96,24 +96,24 @@
         var itemsIn = 0;
         var itemsOut = 0;
         var itemsAvailable = [];
-        var a = [], b = [];
+        var coming = [], dispatch = [];
         for (i = 0; i < actions.length; i++) {
             if (i % 2 == 0) {
-                a = a.concat(actions[i]);
+                coming = coming.concat(actions[i]);
                 itemsIn += actions[i].length;
             } else {
-                b = b.concat(actions[i]);
-            }
-            for (j = 0; j < a.length; j++) {
-                if (b.includes(a[j])) {
-                    a.splice(j, 1);
-                    j--;
+                dispatch = dispatch.concat(actions[i]);
+                for (j = 0; j < coming.length; j++) {
+                    if (dispatch.includes(coming[j])) {
+                        coming.splice(j, 1);
+                        j--;
+                    }
                 }
             }
-            itemsOut += b.length;
-            b = [];
+            itemsOut += dispatch.length;
+            dispatch = [];
         }
-        itemsAvailable = a;
+        itemsAvailable = coming;
         return 'Пришло: ' + itemsIn + '; ' + 'Отправлено: ' + itemsOut + '; ' + 'Товары на складе: ' + itemsAvailable;
     }
     console.log( balance(transactions) );
