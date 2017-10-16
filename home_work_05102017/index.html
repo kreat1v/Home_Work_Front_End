@@ -22,11 +22,11 @@
     function sortSalaries(salaryList) {
         var salaryListCopy = salaryList.slice();
         for (i = 0; i < salaryListCopy.length; i++) {
-            salaryListCopy[i] = salaryListCopy[i] / 1000;
+            salaryListCopy[i] = salaryListCopy[i] / 1000000;
         }
         salaryListCopy.sort();
         for (i = 0; i < salaryListCopy.length; i++) {
-            salaryListCopy[i] = salaryListCopy[i] * 1000;
+            salaryListCopy[i] = Math.round(salaryListCopy[i] * 1000000);
         }
         return salaryListCopy;
     }
