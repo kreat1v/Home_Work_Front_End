@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parallax</title>
+    <style>
+        body {
+            background: url("https://br3t.github.io/fstk/hometask/task_15/bg.gif");
+        }
+
+        .L {
+            width: 400px;
+            height: 400px;
+            background-color: #ff0000;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .M {
+            width: 300px;
+            height: 300px;
+            background-color: #008000;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .S {
+            width: 200px;
+            height: 200px;
+            background-color: #0000ff;
+            position: absolute;
+            z-index: 3;
+        }
+    </style>
+    <script>
+        function getClientWidth() {
+            return document.documentElement.clientWidth;
+        }
+
+        function getClientHeight() {
+            return document.documentElement.clientHeight;
+        }
+
+        function getCenterX(width) {
+            return ((((getClientWidth() - width) / 2) * 100) / getClientWidth());
+        }
+
+        function getCenterY(height) {
+            return ((((getClientHeight() - height) / 2) * 100) / getClientHeight());
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.L').style.top =  getCenterY(400) + '%';
+            document.querySelector('.L').style.left =  getCenterX(400) + '%';
+            document.querySelector('.M').style.top =  getCenterY(300) + '%';
+            document.querySelector('.M').style.left =  getCenterX(300) + '%';
+            document.querySelector('.S').style.top =  getCenterY(200) + '%';
+            document.querySelector('.S').style.left =  getCenterX(200) + '%';
+        });
+
+        document.onmousemove = function(MouseEvent) {
+            document.body.style.backgroundPosition = ((MouseEvent.clientX * 100) / getClientWidth()) + '%' + ' ' + (-(MouseEvent.clientY * 100) / getClientHeight()) + '%';
+
+            document.querySelector('.L').style.marginLeft = -((((MouseEvent.clientX - (getClientWidth() / 2)) / 2) * 100) / getClientWidth()) + '%';
+            document.querySelector('.L').style.marginTop = -((((MouseEvent.clientY - (getClientHeight() / 2)) / 2) * 50) / getClientHeight()) + '%';
+            document.querySelector('.M').style.marginLeft = -((((MouseEvent.clientX - (getClientWidth() / 2)) / 2) * 150) / getClientWidth()) + '%';
+            document.querySelector('.M').style.marginTop = -((((MouseEvent.clientY - (getClientHeight() / 2)) / 2) * 75) / getClientHeight()) + '%';
+            document.querySelector('.S').style.marginLeft = -((((MouseEvent.clientX - (getClientWidth() / 2)) / 2) * 200) / getClientWidth()) + '%';
+            document.querySelector('.S').style.marginTop = -((((MouseEvent.clientY - (getClientHeight() / 2)) / 2) * 100) / getClientHeight()) + '%';
+        };
+    </script>
+</head>
+<body>
+<div class="L"></div>
+<div class="M"></div>
+<div class="S"></div>
+</body>
+</html>
