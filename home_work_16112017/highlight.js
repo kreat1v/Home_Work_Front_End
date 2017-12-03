@@ -2,15 +2,18 @@
 
 var highlight = function(){
     var search = location.search;
-    var arr = search.split('&');
-    var id = arr[0].split('=')[1];
-    var color = arr[1].split('=')[1];
 
-    var highlightArr = document.querySelectorAll('[class=highlight]');
+    if (search != "") {
+        var arr = search.split('&');
+        var id = arr[0].split('=')[1];
+        var color = arr[1].split('=')[1];
 
-    for (var i = 0; i < highlightArr.length; i++) {
-        if (highlightArr[i].dataset.id == 2) {
-            highlightArr[i].style.backgroundColor = '#' + color;
+        var highlightArr = document.querySelectorAll('[class=highlight]');
+
+        for (var i = 0; i < highlightArr.length; i++) {
+            if (highlightArr[i].dataset.id == id) {
+                highlightArr[i].style.backgroundColor = '#' + color;
+            }
         }
     }
 };
