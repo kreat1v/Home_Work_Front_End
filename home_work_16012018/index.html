@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="invitationApp">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script src="invitationList.js"></script>
+    <link rel="stylesheet" href="invitationList.css">
+</head>
+
+<body ng-controller="invitationController as invitationList">
+
+    <header>
+        <div class="form">
+            <form ng-submit="invitationList.add()">
+                <input type="text" class="enter" ng-model="invitationList.addText"  maxlength="30" placeholder="Add another friend">
+                <input type="submit" class="submit" value="+">
+            </form>
+
+            <small>Already invited: {{invitationList.invited.length}}</small>
+        </div>
+    </header>
+
+    <main>
+        <div class="list">
+            <ul>
+                <li ng-repeat="inv in invitationList.invited">
+                    <input type="radio" class="radio" ng-model="invitationList.name" value="{{inv.text}}" id="id{{inv.id}}">
+                    <label for="id{{inv.id}}">{{inv.text}}</label>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <h1>Hello, {{invitationList.name}} !</h1>
+    </footer>
+
+</body>
+</html>
