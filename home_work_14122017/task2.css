@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Limelight');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgba(221, 225, 228, 0.78);
+}
+
+header {
+    background-color: #afb2b4;
+    padding: 5px;
+    margin-bottom: 11px;
+}
+
+div {
+    position: relative;
+    width: 400px;
+    border: 4px double black;
+    display: block;
+    margin: 5px auto;
+    padding: 5px;
+}
+
+.submit {
+    display: block;
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+    margin: 10px 50px;
+    outline: none;
+    background: #f2f6f8;
+    background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #f2f6f8), color-stop(50%, #d8e1e7), color-stop(51%, #b5c6d0), color-stop(100%, #e0eff9));
+    background: -webkit-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+    background: -o-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+    background: -ms-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+    background: linear-gradient(to bottom, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0 );
+    -webkit-box-shadow: 5px 5px 17px -1px rgba(0,0,0,0.89);
+    -moz-box-shadow: 5px 5px 17px -1px rgba(0,0,0,0.89);
+    box-shadow: 5px 5px 17px -1px rgba(0,0,0,0.89);
+    border-radius: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #2a2a2a;
+    font-weight: bold;
+    border: 1px solid rgba(80, 80, 80, 0.88);
+}
+
+.newSubmit {
+    width: 418px;
+    margin: 15px auto;
+}
+
+.submit:active {
+    background: #afb2b4;
+    background: -moz-linear-gradient(top, #afb2b4 0%, #c2cbd0 50%, #b5c6d0 51%, #c0ced8 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #afb2b4), color-stop(50%, #c2cbd0), color-stop(51%, #b5c6d0), color-stop(100%, #c0ced8));
+    background: -webkit-linear-gradient(top, #afb2b4 0%, #c2cbd0 50%, #b5c6d0 51%, #c0ced8 100%);
+    background: -o-linear-gradient(top, #afb2b4 0%, #c2cbd0 50%, #b5c6d0 51%, #c0ced8 100%);
+    background: -ms-linear-gradient(top, #afb2b4 0%, #c2cbd0 50%, #b5c6d0 51%, #c0ced8 100%);
+    background: linear-gradient(to bottom, #afb2b4 0%, #c2cbd0 50%, #b5c6d0 51%, #c0ced8 100%);
+    -webkit-box-shadow: 5px 5px 17px -1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 5px 5px 17px -1px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 17px -1px rgba(0,0,0,0.2);
+}
+
+.submit[disabled] {
+    background: #afb2b4;
+    background: -moz-linear-gradient(top, #afb2b4 0%, #c2cbd0 50%, #b5c6d0 51%, #c0ced8 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #afb2b4), color-stop(50%, #c2cbd0), color-stop(51%, #b5c6d0), color-stop(100%, #c0ced8));
+    background: -webkit-linear-gradient(top, #afb2b4 0%, #c2cbd0 50%, #b5c6d0 51%, #c0ced8 100%);
+    background: -o-linear-gradient(top, #afb2b4 0%, #c2cbd0 50%, #b5c6d0 51%, #c0ced8 100%);
+    background: -ms-linear-gradient(top, #afb2b4 0%, #c2cbd0 50%, #b5c6d0 51%, #c0ced8 100%);
+    background: linear-gradient(to bottom, #afb2b4 0%, #c2cbd0 50%, #b5c6d0 51%, #c0ced8 100%);
+    -webkit-box-shadow: 5px 5px 17px -1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 5px 5px 17px -1px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 17px -1px rgba(0,0,0,0.2);
+    color: rgba(42, 42, 42, 0.46);
+    cursor: auto;
+}
+
+div p {
+    position: absolute;
+    font-size: 70px;
+    top: 10px;
+    right: 20px;
+    font-family: 'Limelight', cursive;
+    color: rgba(174, 178, 186, 0.7);
+}

@@ -1,0 +1,46 @@
+<!-- На странице располагается несколько div имеющих разный фон, есть кнопка для добавления новых в конец списка.
+Каждый div содержит кнопки: переместиться перед предыдущим блоком;
+    перемститься после следующего блока;
+    переместиться внутрь предыдущего блока;
+    переместиться из родительского блока и стать после него.
+Если каколибо действие в какой-то момент недоступно - блокировать соответствующую кнопку.
+Написать скрипт, используя jQuery. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="task2.css">
+</head>
+<body>
+    <header>
+        <button class="submit newSubmit">Новый блок</button>
+    </header>
+
+    <main>
+        <div>
+            <button class="submit up" title="Переместиться перед предыдущим блоком" disabled>Вверх!</button>
+            <button class="submit down" title="Перемститься после следующего блока">Вниз!</button>
+            <button class="submit in" title="Переместиться внутрь предыдущего блока" disabled>Внутрь!</button>
+            <button class="submit out" title="Переместиться из родительского блока и стать после него" disabled>Наружу!</button>
+            <p>1</p>
+        </div>
+        <div>
+            <button class="submit up" title="Переместиться перед предыдущим блоком">Вверх!</button>
+            <button class="submit down" title="Перемститься после следующего блока">Вниз!</button>
+            <button class="submit in" title="Переместиться внутрь предыдущего блока">Внутрь!</button>
+            <button class="submit out" title="Переместиться из родительского блока и стать после него" disabled>Наружу!</button>
+            <p>2</p>
+        </div>
+        <div>
+            <button class="submit up" title="Переместиться перед предыдущим блоком">Вверх!</button>
+            <button class="submit down" title="Перемститься после следующего блока" disabled>Вниз!</button>
+            <button class="submit in" title="Переместиться внутрь предыдущего блока">Внутрь!</button>
+            <button class="submit out" title="Переместиться из родительского блока и стать после него" disabled>Наружу!</button>
+            <p>3</p>
+        </div>
+    </main>
+    <script src="task2.js"></script>
+</body>
+</html>
