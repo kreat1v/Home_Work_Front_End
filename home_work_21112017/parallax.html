@@ -33,6 +33,29 @@
         }
     </style>
     <script>
+        var block = {
+            L: {
+                name: '.L',
+                size: 400,
+                w: 100,
+                h: 50
+            },
+
+            M: {
+                name: '.M',
+                size: 300,
+                w: 150,
+                h: 75
+            },
+
+            S: {
+                name: '.S',
+                size: 200,
+                w: 200,
+                h: 100
+            }
+        };
+
         function getClientWidth() {
             return document.documentElement.clientWidth;
         }
@@ -50,29 +73,27 @@
         }
 
         document.addEventListener('DOMContentLoaded', function () {
-            document.querySelector('.L').style.top =  getCenterY(400) + '%';
-            document.querySelector('.L').style.left =  getCenterX(400) + '%';
-            document.querySelector('.M').style.top =  getCenterY(300) + '%';
-            document.querySelector('.M').style.left =  getCenterX(300) + '%';
-            document.querySelector('.S').style.top =  getCenterY(200) + '%';
-            document.querySelector('.S').style.left =  getCenterX(200) + '%';
+            for (var key in block) {
+                document.querySelector(block[key].name).style.top =  getCenterY(block[key].size) + '%';
+                document.querySelector(block[key].name).style.left =  getCenterX(block[key].size) + '%';
+            }
         });
 
         document.onmousemove = function(MouseEvent) {
             document.body.style.backgroundPosition = ((MouseEvent.clientX * 100) / getClientWidth()) + '%' + ' ' + (-(MouseEvent.clientY * 100) / getClientHeight()) + '%';
 
-            document.querySelector('.L').style.marginLeft = -((((MouseEvent.clientX - (getClientWidth() / 2)) / 2) * 100) / getClientWidth()) + '%';
-            document.querySelector('.L').style.marginTop = -((((MouseEvent.clientY - (getClientHeight() / 2)) / 2) * 50) / getClientHeight()) + '%';
-            document.querySelector('.M').style.marginLeft = -((((MouseEvent.clientX - (getClientWidth() / 2)) / 2) * 150) / getClientWidth()) + '%';
-            document.querySelector('.M').style.marginTop = -((((MouseEvent.clientY - (getClientHeight() / 2)) / 2) * 75) / getClientHeight()) + '%';
-            document.querySelector('.S').style.marginLeft = -((((MouseEvent.clientX - (getClientWidth() / 2)) / 2) * 200) / getClientWidth()) + '%';
-            document.querySelector('.S').style.marginTop = -((((MouseEvent.clientY - (getClientHeight() / 2)) / 2) * 100) / getClientHeight()) + '%';
+            for (var key in block) {
+                document.querySelector(block[key].name).style.marginLeft = -((((MouseEvent.clientX - (getClientWidth() / 2)) / 2) * block[key].w) / getClientWidth()) + '%';
+                document.querySelector(block[key].name).style.marginTop = -((((MouseEvent.clientY - (getClientHeight() / 2)) / 2) * block[key].h) / getClientHeight()) + '%';
+            }
         };
     </script>
 </head>
 <body>
-<div class="L"></div>
-<div class="M"></div>
-<div class="S"></div>
+
+    <div class="L"></div>
+    <div class="M"></div>
+    <div class="S"></div>
+
 </body>
 </html>

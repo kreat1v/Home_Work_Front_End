@@ -27,11 +27,11 @@ var createWindow = function (key) {
     newWindow.style.left = coordX + 'px';
     newWindow.style.top = coordY + 'px';
     newWindow.style.zIndex = zIndex;
-    body.appendChild(newWindow);
+    newWindow.appendChild(createPart('caption', windowId, ''));
+    newWindow.appendChild(createPart('x', windowId, 'X'));
+    newWindow.appendChild(createPart('body', windowId, 'You clicked: ' + key));
 
-    createPart('caption', windowId, '');
-    createPart('x', windowId, 'X');
-    createPart('body', windowId, 'You clicked: ' + key);
+    body.appendChild(newWindow);
 
     idCounter++;
     zIndex++;
@@ -43,7 +43,7 @@ function createPart(className, windowId, text) {
     var part = document.createElement('div');
     part.className = className;
     part.innerText = text;
-    document.getElementById(windowId).appendChild(part);
+    return part;
 }
 
 function firstPlan(id) {
