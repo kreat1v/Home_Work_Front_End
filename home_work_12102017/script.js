@@ -1,6 +1,8 @@
 // Задача 1 - Объединение объектов. Написать функцию, которая на вход будет принимать два объекта и будет возвращать результирующий объект со всеми свойствами входящих объектов. Если есть одинаковые свойства в обоих объектах, то берется значение из второго. Значения всех свойств - примитивы.
 function objectMerge (a, b) {
+
     var newObject = {};
+
     for (var property1 in a) {
         for (var property2 in b) {
             if (a[property1] == b[property2]) {
@@ -11,6 +13,7 @@ function objectMerge (a, b) {
             }
         }
     }
+
     for (property1 in a) {
         if (property1 in newObject) {
             return newObject;
@@ -18,6 +21,7 @@ function objectMerge (a, b) {
             newObject[property1] = a[property1];
         }
     }
+
     for (property2 in b) {
         if (property2 in newObject) {
             return newObject;
@@ -25,22 +29,29 @@ function objectMerge (a, b) {
             newObject[property2] = b[property2];
         }
     }
+
     return newObject;
 }
 
 // Задача 2 - Самые старые. Имеется информация о спортсменах в виде массива объектов с полями "имя" и "возраст" ([{name:"Yan", age: 33}, ...]). Написать функцию, которая вернет массив из имен N самых старых спортсменов.
 var sportsmen = [{name:"Yan", age: 33}, {name:"Sara", age: 27}, {name:"Bob", age: 46}];
+
 function topOldest(menlist, limit) {
     function compareAge(personA, personB) {
         return personB.age - personA.age;
     }
+
     menlist.sort(compareAge);
+
     var oldestPeople = [];
+
     for (var i = 0; i < limit; i++) {
         oldestPeople.push(menlist[i].name);
     }
+
     return oldestPeople;
 }
+
 console.log(topOldest(sportsmen, 3));
 
 // Задача 3 - Награждение. Есть данные о спортсменах, информация о каждом спортсмене хранится в своей переменной типа "объект". Необходимо написать функцию, которая будет принимать 3 параметра: спортсмена, тип медали (строка) и количество медалей (целое положительное число). При запуске этой функции у спорстмена должно увеличиться количество медалей указанного типа на заданное число. Информация о типе и количестве медалей хранится в свойствах внутреннего объекта medals объекта спортсмена. Следует учесть, что в у спортсмена до запуска функции может не быть медалей заданного типа или не быть медалей вообще.
@@ -120,34 +131,34 @@ function beautify(str) {
 }
 
 // Задача 6 - Только брутфорс. Имеется зашифрованный пароль (например, "YTFiMmMz") и извесна функция шифрования btoa. Извесно, что пароль имеет длину от 1 до 6 символов и состоит из цифр и букв a, b, c, не начинается с нуля. Написать функцию, которая с помощью последовательного перебора найдет пароль. Функцию btoa считаем "необратимой", т.е. использовать atob нельзя.
+
 var password = "YTFiMmMz";
 
 function bruteForce(psswrd) {
-    var arr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'a', 'b', 'c'];
-    var pass = null;
-    var a, b, c, d, e, f;
+    var str = '1234567890abc';
+    var len = 6;
+    var pas = '';
 
-    var bust = function (arr) {
-        for (var i, j = 0; i < 14, j < 14; i++) {
-            a = arr[i];
-
-            if (j == 13) {
-                j = 0;
+    function rekurs(str, len, text) {
+        var i = 0;
+        var text_inner = '';
+        if (len > 0) {
+            while (str[i]) {
+                text_inner = text + str[i];
+                var encodedVariant = btoa(text_inner);
+                if (psswrd != encodedVariant) {
+                    i++;
+                    rekurs (str, len-1, text_inner);
+                } else {
+                    pas = text_inner;
+                    break;
+                }
             }
         }
-    };
+    }
 
-    var fullBust = function () {
-        for (var i = 0, j = 0; i < 14, j < 14; j++) {
-            if (pass == null) {
-                bust(arr);
-            } else {
-
-            }
-        }
-    };
-
-    var encodedVariant = btoa(variant);
-    // ...
+    rekurs (str, len, '');
+    return pas;
 }
+
 console.log(bruteForce(password));
