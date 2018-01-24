@@ -22,12 +22,13 @@
     var salaries = [3100, 890, 1120, 740, 2100, 550, 540, 3200, 1570, 250];
     function sortSalaries(salaryList) {
         var salaryListCopy = salaryList.slice();
-        for (i = 0; i < salaryListCopy.length; i++) {
-            salaryListCopy[i] = salaryListCopy[i] / 1000000;
+        var max = Math.max.apply(null, salaryListCopy);
+        for (var i = 0; i < salaryListCopy.length; i++) {
+            salaryListCopy[i] = salaryListCopy[i] / max;
         }
         salaryListCopy.sort();
         for (i = 0; i < salaryListCopy.length; i++) {
-            salaryListCopy[i] = Math.round(salaryListCopy[i] * 1000000);
+            salaryListCopy[i] = salaryListCopy[i] * max;
         }
         return salaryListCopy;
     }
