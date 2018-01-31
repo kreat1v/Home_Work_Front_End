@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header li {
+    padding: 10px;
+}
+
+.main_style {
+    margin: 20px;
+    width: 500px;
+    height: 60px;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    border: 1px solid #a7a7a7;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.item {
+    padding: 10px;
+    display: inline-block;
+    position: relative;
+    color: #6e6e6e;
+    cursor: pointer;
+}
+
+.active {
+    padding: 9px 9px 10px 9px;
+    border-right: 1px solid #a7a7a7;
+    border-left: 1px solid #a7a7a7;
+    border-top: 1px solid #a7a7a7;
+    position: relative;
+    background-color: #f8f8f8;
+    box-sizing: border-box;
+}
+
+.links {
+    list-style: none;
+    border: 1px solid #a7a7a7;
+    position: absolute;
+    display: block;
+    top: 36px;
+    left: -1px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    text-align: left;
+    z-index: -1;
+    background-color: #f8f8f8;
+}
+
+.links a {
+    white-space: nowrap;
+    text-decoration: none;
+    color: #6e6e6e;
+}
+
+hr {
+    margin: 150px 20px 50px;
+}
+
+.cards {
+    margin: 20px;
+    width: 800px;
+    border: 1px solid #a7a7a7;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+}
+
+.select {
+    border: 2px solid #a7a7a7;
+    padding: 5px;
+    margin: 10px;
+    width: 200px;
+    height: 35px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    font-weight: normal;
+    color: #ffffff;
+    padding: 15px;
+    background: #a7a7a7;
+}
+
+td {
+    color: #6e6e6e;
+    padding: 15px;
+}
+
+td:first-child {
+    text-align: right;
+}
+
+td:nth-child(2) {
+    background-color: #a7a7a7;
+}
+
+img {
+    border-bottom-right-radius: 5px;
+}

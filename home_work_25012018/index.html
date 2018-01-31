@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home work 2</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://use.fontawesome.com/0e39eb929c.js"></script>
+</head>
+
+<body>
+
+    <header data-ng-controller="MenuList as menu">
+        <ul class="main_style">
+            <li class="item" data-ng-repeat="item in menu.list" data-ng-click='menu.toggle(item.name)' ng-class="menu.show == item.name ? 'active' : ''">
+                <span data-ng-bind="item.name"></span>
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                <ul class="links" data-ng-show="menu.show == item.name">
+                    <li data-ng-repeat="link in item.link">
+                        <a href="#"><i class="{{link.img}}" aria-hidden="true"></i> {{link.name}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <hr />
+
+    <main data-ng-controller="TemplateList as template" class="cards">
+        <select class="select" ng-model="template.selection" ng-options="item.name for item in template.templates"></select>
+        <div ng-include="'templates/temp.html'"></div>
+    </main>
+
+</body>
+
+<script type="text/javascript" src="lib/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="controllers/MenuList.js"></script>
+<script type="text/javascript" src="controllers/TemplateList.js"></script>
+
+</html>
