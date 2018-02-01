@@ -27,8 +27,8 @@
     <hr />
 
     <main data-ng-controller="TemplateList as template" class="cards">
-        <select class="select" ng-model="template.selection" ng-options="item.name for item in template.templates"></select>
-        <div ng-include="'templates/temp.html'"></div>
+        <select class="select" data-ng-model="template.selection" data-ng-options="item.name for item in template.templates"></select>
+        <div data-ng-include="'templates/temp.html'"></div>
     </main>
 
 </body>
