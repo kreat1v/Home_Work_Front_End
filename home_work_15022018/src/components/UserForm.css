@@ -1,0 +1,49 @@
+form {
+    font-family:Arial,Helvetica,sans-serif;
+    margin:0;
+    padding:0;
+}
+
+span {
+    color:red;
+}
+
+.h {
+    background-color:#363636;
+    color:#fff;
+    height: 40px;
+    width:80%;
+    text-align:center;
+    padding-top:15px;
+    padding-bottom:10px;
+}
+
+.footer {
+    height:80px;
+    width:80%;
+    background-color:#363636;
+}
+
+.sub {
+    position:relative;
+}
+
+#submit {
+    font-weight:bold;
+    height:35px;
+    position:absolute;
+    left:20px;
+    top:20px;
+}
+
+#reset {
+    font-weight:bold;
+    height:35px;
+    position:absolute;
+    left:115px;
+    top:20px;
+}
+
+.pad {
+    padding-left:25px;
+}
