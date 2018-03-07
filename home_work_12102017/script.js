@@ -3,31 +3,12 @@ function objectMerge (a, b) {
 
     var newObject = {};
 
-    for (var property1 in a) {
-        for (var property2 in b) {
-            if (a[property1] == b[property2]) {
-                newObject[property2] = b[property2];
-            } else {
-                newObject[property1] = a[property1];
-                newObject[property2] = b[property2];
-            }
-        }
+    for (var property in a) {
+        newObject[property] = a[property];
     }
 
-    for (property1 in a) {
-        if (property1 in newObject) {
-            return newObject;
-        } else {
-            newObject[property1] = a[property1];
-        }
-    }
-
-    for (property2 in b) {
-        if (property2 in newObject) {
-            return newObject;
-        } else {
-            newObject[property2] = b[property2];
-        }
+    for (property in b) {
+        newObject[property] = b[property];
     }
 
     return newObject;
@@ -71,22 +52,37 @@ function give(runner, typeMedals, place) {
 // Задача 4 - Спамер консоли. Создать объект spammer с двумя методами startSpam и stopSpam. При передаче методу startSpam некой строки он каждую секунду выводит в консоль (console.log) эту строку. При повторном запуске с другой строкой первая строка продолжает выводиться, а новая строка выводится отдельным console.log. Запуск метода stopSpam с параметром в виде строки находит эту строку среди выводимых в консоль и останавливает "спам" этой строки.
 var spammer = {
     arr: [],
-    spam: {},
-    key: 0,
+    spam: null,
 
     startSpam: function (string)
     {
+        if (this.arr.length == 0) {
+            this.startInterval();
+        }
         this.arr.push(string);
-        this.spam['key' + this.key] = setInterval(console.log, 1000, string);
-        this.key++;
     },
 
     stopSpam: function (string)
     {
         var index = this.arr.indexOf(string);
-        clearInterval(this.spam['key' + index]);
-        this.arr[index] = null;
-        delete this.spam['i' + index];
+
+        if (index != -1) {
+            this.arr.splice(index, 1);
+        }
+
+        if (this.arr.length == 0) {
+            clearInterval(this.spam);
+        }
+    },
+
+    startInterval: function () {
+        var cont = this;
+
+        this.spam = setInterval(function () {
+            cont.arr.forEach(function (item) {
+                console.log(item);
+            })
+        }, 1000);
     }
 };
 
