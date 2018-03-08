@@ -5,13 +5,12 @@ $('div').each(function () {
 var count = 4;
 
 $('.newSubmit').click(function() {
-    var newDiv = $('<div>');
-    $(newDiv).css('background-color', colorRandom());
-    $(newDiv).append('<button class="submit up" title="Переместиться перед предыдущим блоком">Вверх!</button>');
-    $(newDiv).append('<button class="submit down" title="Перемститься после следующего блока" disabled>Вниз!</button>');
-    $(newDiv).append('<button class="submit in" title="Переместиться внутрь предыдущего блока">Внутрь!</button>');
-    $(newDiv).append('<button class="submit out" title="Переместиться из родительского блока и стать после него" disabled>Наружу!</button>');
-    $(newDiv).append('<p>' + count + '</p>');
+    var newDiv = $('<div style="background-color: ' + colorRandom() + '">' +
+        '<button class="submit up" title="Переместиться перед предыдущим блоком">Вверх!</button>' +
+        '<button class="submit down" title="Перемститься после следующего блока" disabled>Вниз!</button>' +
+        '<button class="submit in" title="Переместиться внутрь предыдущего блока">Внутрь!</button>' +
+        '<button class="submit out" title="Переместиться из родительского блока и стать после него" disabled>Наружу!</button>' +
+        '<p>' + count + '</p>');
     $('main').append(newDiv);
     count++;
 });
@@ -21,28 +20,28 @@ function colorRandom() {
 }
 
 $('body').on('click', '.submit', function() {
-    var parent = $(this).parent()[0];
+    var parent = $(this).parent('div');
 
     if ($(this).hasClass('up')) {
-        $($(parent).prev('div')[0]).before(parent);
+        parent.prev('div').before(parent);
     }
 
     if ($(this).hasClass('down')) {
-        $($(parent).next('div')[0]).after(parent);
+        parent.next('div').after(parent);
     }
 
     if ($(this).hasClass('in')) {
-        $($(parent).prev('div')[0]).append(parent);
+        parent.prev('div').append(parent);
     }
 
     if ($(this).hasClass('out')) {
-        $($(parent).parent()[0]).after(parent);
+        parent.parent('div').after(parent);
     }
 
     $('.up, .in').each(function () {
-        var parent = $(this).parent()[0];
+        var parent = $(this).parent('div');
 
-        if (!$(parent).prev('div')[0]) {
+        if (!parent.prev('div').get(0)) {
             $(this).prop("disabled", true);
         } else {
             $(this).prop("disabled", false);
@@ -50,9 +49,9 @@ $('body').on('click', '.submit', function() {
     });
 
     $('.down').each(function () {
-        var parent = $(this).parent()[0];
+        var parent = $(this).parent('div');
 
-        if (!$(parent).next('div')[0]) {
+        if (!parent.next('div').get(0)) {
             $(this).prop("disabled", true);
         } else {
             $(this).prop("disabled", false);
@@ -60,9 +59,9 @@ $('body').on('click', '.submit', function() {
     });
 
     $('.out').each(function () {
-        var parent = $(this).parent()[0];
+        var parent = $(this).parent('div');
 
-        if (!$(parent).parent('div')[0]) {
+        if (!parent.parent('div').get(0)) {
             $(this).prop("disabled", true);
         } else {
             $(this).prop("disabled", false);
